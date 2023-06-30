@@ -19,7 +19,7 @@
 		}
 
 		&.alert-info::before {
-			background-color: @brand-info;
+			background-color: $brand-info;
 		}
 
 		&.alert-warning::before {
@@ -27,16 +27,16 @@
 		}
 
 		&.alert-success::before {
-			background-color: @brand-success;
+			background-color: $brand-success;
 		}
 
 		&.alert-danger::before {
-			background-color: @brand-danger;
+			background-color: $brand-danger;
 		}
 
 		&.animate {
 			&.alert-info::before {
-				background-color: lighten(@brand-info, 25%);
+				background-color: lighten($brand-info, 25%);
 			}
 			
 			&.alert-warning::before {
@@ -44,15 +44,15 @@
 			}
 			
 			&.alert-success::before {
-				background-color: lighten(@brand-success, 25%);
+				background-color: lighten($brand-success, 25%);
 			}
 			
 			&.alert-danger::before {
-				background-color: lighten(@brand-danger, 25%);
+				background-color: lighten($brand-danger, 25%);
 			}
 			
 			&::before {
-				width: ~"calc(100% + 50px)";
+				width: "calc(100% + 50px)";
 			}
 		}
 
@@ -70,26 +70,26 @@
 		}
 
 		&.alert-info {
-			color: @brand-info;
-			border-color: @brand-info;
+			color: $brand-info;
+			border-color: $brand-info;
 			background-color: #fff;
 		}
 
-		&.alert-warning {
+		&.alert-warning {semicolon
 			color: #FFA000;
 			border-color: #FFA000;
 			background-color: #fff;
 		}
 
 		&.alert-success {
-			color: @brand-success;
-			border-color: @brand-success;
+			color: $brand-success;
+			border-color: $brand-success;
 			background-color: #fff;
 		}
 
 		&.alert-danger {
-			color: @brand-danger;
-			border-color: @brand-danger;
+			color: $brand-danger;
+			border-color: $brand-danger;
 			background-color: #fff;
 		}
 	}

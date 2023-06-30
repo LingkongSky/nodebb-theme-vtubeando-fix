@@ -10,7 +10,7 @@
         #main-nav {
             .active>a {
                 color: initial;
-                border-bottom: 2px solid @primary-color;
+                border-bottom: 2px solid $primary-color;
                 transition: all 0.3s ease-in-out;
             }
         }
@@ -75,7 +75,7 @@
 
     #main-nav {
         .active>a {
-            color: @primary-color;
+            color: $primary-color;
             background: none;
 
             &:focus {
@@ -87,7 +87,7 @@
             border-bottom: 2px solid #fff;
 
             &:hover {
-                border-bottom-color: @primary-color;
+                border-bottom-color: $primary-color;
             }
         }
     }
@@ -116,11 +116,11 @@
     }
 
     .user-icon {
-        .user-icon(30px, 1.4em);
+        @include user-icon(30px, 1.4em);
     }
 
     .user-avatar {
-        .user-avatar(30px);
+        @include user-avatar(30px);
     }
 }
 
@@ -147,7 +147,7 @@
             width: auto;
     }
 
-    @media (max-width: @screen-xs-max) {
+    @media (max-width: $screen-xs-max) {
             .forum-logo {
                     margin-left: 15px;
             }

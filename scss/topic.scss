@@ -20,7 +20,7 @@
                 color: #777;
 
                 &.upvoted, &.downvoted, &:hover {
-                    color: @primary-color;
+                    color: $primary-color;
                 }
             }
         }
@@ -38,7 +38,7 @@
         }
 
         &.highlight {
-            border-bottom: 1px solid @primary-color;
+            border-bottom: 1px solid $primary-color;
         }
     }
 
@@ -51,25 +51,25 @@
                 display: inline-block;
             }
 
-            @media (max-width: @screen-xs-max) {
+            @media (max-width: $screen-xs-max) {
                 text-align: left;
             }
 
             .user-icon {
-                .user-icon(100px, 4em);
+                @include user-icon(100px, 4em);
 
-                @media (max-width: @screen-xs-max) {
+                @media (max-width: $screen-xs-max) {
                     margin-right: 10px;
-                    .user-icon(60px, 3em);
+                    @include user-icon(60px, 3em);
                 }
             }
 
             .user-avatar {
-                .user-avatar(100px);
+                @include user-avatar(100px);
 
-                @media (max-width: @screen-xs-max) {
+                @media (max-width: $screen-xs-max) {
                     margin-right: 10px;
-                    .user-avatar(60px);
+                    @include user-avatar(60px);
                 }
             }
         }
@@ -78,7 +78,7 @@
             margin-top: 10px;
             vertical-align: top;
 
-            @media (max-width: @screen-xs-max) {
+            @media (max-width: $screen-xs-max) {
                 display: inline-block;
                 margin-top: 0;
             }
@@ -137,11 +137,11 @@
                 display: inline-block;
 
                 .user-avatar {
-                    .user-avatar(80px);
+                    @include user-avatar(80px);
                 }
 
                 .user-icon {
-                    .user-icon(80px, 4em);
+                    @include user-icon(80px, 4em);
                 }
             }
 
@@ -175,10 +175,10 @@
                 color: #999;
                 padding: 0 5px;
                 border-radius: 4px;
-                border: 1px solid @primary-color;
+                border: 1px solid $primary-color;
 
                 &:hover {
-                    color: @primary-color;
+                    color: $primary-color;
                 }
 
                 .tag-item {
@@ -190,7 +190,7 @@
 
     .pagination-block {
 		position: fixed;
-		background-color: @gray-lighter;
+		background-color: $gray-lighter;
 		bottom: 0px;
 		right: 0px;
 		z-index: 100;
@@ -198,7 +198,7 @@
 		opacity: 0;
 
 		.pagination-text {
-			color: @text-color;
+			color: $text-color;
 			position: relative;
     		top: -3px;
     		font-weight: bolder;
@@ -228,7 +228,7 @@
 				}
 				.scroller-container {
 					height: 300px;
-					border-right: 3px solid @gray-lighter;
+					border-right: 3px solid $gray-lighter;
 					margin-right: 3px;
 					cursor: pointer;
 					.scroller-thumb {
@@ -242,7 +242,7 @@
 						.scroller-thumb-icon {
 							width: 9px;
 							height: 40px;
-							background-color: @brand-primary;
+							background-color: $brand-primary;
 							position: relative;
 							display: inline-block;
 							border-radius: 3px;
@@ -257,21 +257,21 @@
 					}
 				}
 			}
-			@media (max-width: @screen-sm-min) {
+			@media (max-width: $screen-sm-min) {
 				.dropdown-menu {
 					width: 100%;
 				}
 			}
 		}
 		.progress-bar {
-			background-color: @brand-info;
+			background-color: $brand-info;
 			display:block;
 			z-index: -1;
 			position: absolute;
 			transition: width 50ms ease-in;
 		}
 	}
-	@media (max-width: @screen-sm-min) {
+	@media (max-width: $screen-sm-min) {
 		.pagination-block {
 			width: 100%;
 		}

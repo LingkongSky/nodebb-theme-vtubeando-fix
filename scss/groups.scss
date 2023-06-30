@@ -30,10 +30,10 @@
             display: inline-block;
         }
         .user-avatar {
-            .user-avatar(30px);
+            @include user-avatar(30px);
         }
         .user-icon {
-            .user-icon(30px, 1.3em);
+            @include user-icon(30px, 1.3em);
             line-height: 0;
         }
     }
@@ -57,10 +57,10 @@
         }
     }
     .user-avatar {
-        .user-avatar(30px);
+        @include user-avatar(30px);
     }
     .user-icon {
-        .user-icon(30px, 1.3em);
+        @include user-icon(30px, 1.3em);
     }
     .btn-info {
         color: #fff;

@@ -8,11 +8,11 @@
                 padding-right: 15px;
                 
                 .user-avatar {
-                    .user-avatar(35px);
+                    @include user-avatar(35px);
                 }
                 
                 .user-icon {
-                    .user-icon(35px, 1.5em);
+                    @include user-icon(35px, 1.5em);
                 }
             }
             
@@ -70,11 +70,11 @@
                     padding-right: 15px;
                     
                     .user-avatar {
-                        .user-avatar(30px);
+                        @include user-avatar(30px);
                     }
                     
                     .user-icon {
-                        .user-icon(30px, 1.3em);
+                        @include user-icon(30px, 1.3em);
                     }
                 }
                 
@@ -122,7 +122,7 @@
                 }
                 
                  &.unread {
-                     background-color: @primary-color;
+                     background-color: $primary-color;
                      
                      .relTime {
                          color: #fff;

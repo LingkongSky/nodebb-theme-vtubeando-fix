@@ -23,7 +23,7 @@ a, a:hover, a:visited, a:active, a:focus {
 }
 
 #panel.slideout-panel {
-	@media (max-width: @screen-sm-max) {
+	@media (max-width: $screen-sm-max) {
 		min-height: 100vh;
 	}
 }
@@ -37,7 +37,7 @@ a, a:hover, a:visited, a:active, a:focus {
 	}
 }
 
-@media (max-width: @screen-sm-max) {
+@media (max-width: $screen-sm-max) {
 	.form-control {
 		font-size: 16px;
 		height: auto;
@@ -61,7 +61,7 @@ a, a:hover, a:visited, a:active, a:focus {
 	}
 
 	&.offline {
-		color: @gray;
+		color: $gray;
 	}
 }
 

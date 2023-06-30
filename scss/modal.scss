@@ -3,11 +3,11 @@
         .modal-body {
             
             .media-object {
-                .user-avatar(30px);
+                @include user-avatar(30px);
             }
             
             .user-icon {
-                .user-icon(30px, 1.3em);
+                @include user-icon(30px, 1.3em);
             }
             
             .btn-group .btn {

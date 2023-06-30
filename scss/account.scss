@@ -1,13 +1,13 @@
-.account {
+account {
     .profile {
         .user-info {
             text-align: center;
             margin-top: 10px;
             .user-avatar {
-                .user-avatar(120px);
+                @include user-avatar(120px);
             }
             .user-icon {
-                .user-icon(120px, 6em);
+                @include user-icon(120px, 6em);
             }
             .user-avatar,
             .user-icon {
@@ -69,11 +69,11 @@
     }
     .account-picture-block {
         .user-avatar {
-            .user-avatar(120px);
+            @include user-avatar(120px);
             margin: 5px 0 20px;
         }
         .user-icon {
-            .user-icon(120px, 5em);
+            @include user-icon(120px, 5em);
             margin: 5px 0 20px;
         }
     }
@@ -121,19 +121,19 @@
         .note-author {
             text-align: center;
 
-            @media (max-width: @screen-xs-max) {
+            @media (max-width: $screen-xs-max) {
                 text-align: left;
                 padding-bottom: 10px;
             }
         }
 
         .user-avatar {
-            .user-avatar(30px);
+            @include user-avatar(30px);
             margin: 5px;
         }
 
         .user-icon {
-            .user-icon(30px, 1.5em);
+            @include user-icon(30px, 1.5em);
             margin: 5px;
         }
 

@@ -13,11 +13,11 @@
 		margin: 10px 0;
 		
         .user-avatar {
-            .user-avatar(80px);
+            @include user-avatar(80px);
         }
         
         .user-icon {
-            .user-icon(80px, 4em);
+            @include user-icon(80px, 4em);
         }
         
         &.anon-user {

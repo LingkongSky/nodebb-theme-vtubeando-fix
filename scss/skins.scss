@@ -1,5 +1,5 @@
 //Dark skin
-@primary-color-dark: #2A9FD6;
+$primary-color-dark: #2A9FD6;
 body {
     &.theme-dark {
         color: #dfdfdf;
@@ -30,11 +30,11 @@ body {
         }
 
         a {
-            color: @primary-color-dark;
+            color: $primary-color-dark;
         }
         a:hover,
         a:focus {
-            color: @primary-color-dark;
+            color: $primary-color-dark;
         }
 
         .categories {
@@ -117,8 +117,8 @@ body {
 
         .btn-primary {
             color: #fff;
-            background-color: @primary-color-dark;
-            border-color: @primary-color-dark;
+            background-color: $primary-color-dark;
+            border-color: $primary-color-dark;
 
             &.focus, &:focus {
                 color: #fff;
@@ -350,7 +350,7 @@ body {
         .nav .open > a:hover,
         .nav .open > a:focus {
             background-color: #222;
-            border-color: @primary-color-dark;
+            border-color: $primary-color-dark;
         }
         .nav .nav-divider {
             background-color: #e5e5e5;
@@ -369,7 +369,7 @@ body {
         .nav-tabs > li.active > a:hover,
         .nav-tabs > li.active > a:focus {
             color: #fff;
-            background-color: @primary-color-dark;
+            background-color: $primary-color-dark;
             border: 1px solid #282828;
             border-bottom-color: transparent;
         }
@@ -394,7 +394,7 @@ body {
         .nav-pills > li.active > a:hover,
         .nav-pills > li.active > a:focus {
             color: #fff;
-            background-color: @primary-color-dark;
+            background-color: $primary-color-dark;
         }
 
         .nav-tabs-justified > .active > a,
@@ -618,7 +618,7 @@ body {
 
                 &:hover, &:focus {
                     color: #fff;
-                    background-color: @primary-color-dark;
+                    background-color: $primary-color-dark;
                 }
             }
 
@@ -626,7 +626,7 @@ body {
             > .active > a:hover,
             > .active > a:focus {
                 color: #fff;
-                background-color: @primary-color-dark;
+                background-color: $primary-color-dark;
             }
 
             > .disabled > a,
@@ -743,8 +743,8 @@ body {
         .list-group-item.active:hover,
         .list-group-item.active:focus {
             color: #fff;
-            background-color: @primary-color-dark;
-            border-color: @primary-color-dark;
+            background-color: $primary-color-dark;
+            border-color: $primary-color-dark;
         }
 
         .panel {
@@ -793,22 +793,22 @@ body {
             border-bottom-color: #282828;
         }
         .panel-primary {
-            border-color: @primary-color-dark;
+            border-color: $primary-color-dark;
         }
         .panel-primary > .panel-heading {
             color: #fff;
-            background-color: @primary-color-dark;
-            border-color: @primary-color-dark;
+            background-color: $primary-color-dark;
+            border-color: $primary-color-dark;
         }
         .panel-primary > .panel-heading + .panel-collapse > .panel-body {
-            border-top-color: @primary-color-dark;
+            border-top-color: $primary-color-dark;
         }
         .panel-primary > .panel-heading .badge {
-            color: @primary-color-dark;
+            color: $primary-color-dark;
             background-color: #fff;
         }
         .panel-primary > .panel-footer + .panel-collapse > .panel-body {
-            border-bottom-color: @primary-color-dark;
+            border-bottom-color: $primary-color-dark;
         }
         .panel-success {
             border-color: #809a00;
@@ -1052,7 +1052,7 @@ body {
         .pagination > li > a:focus,
         .pagination > li > span:focus {
             color: #fff;
-            background-color: @primary-color-dark;
+            background-color: $primary-color-dark;
             border-color: transparent;
         }
         .pagination > .active > a,
@@ -1062,7 +1062,7 @@ body {
         .pagination > .active > a:focus,
         .pagination > .active > span:focus {
             color: #ffffff;
-            background-color: @primary-color-dark;
+            background-color: $primary-color-dark;
             border-color: transparent;
             cursor: default;
         }
@@ -1114,23 +1114,23 @@ body {
             &.scrolled {
                 #main-nav {
                     .active>a {
-                        color: @primary-color-dark;
-                        border-bottom: 2px solid @primary-color-dark;
+                        color: $primary-color-dark;
+                        border-bottom: 2px solid $primary-color-dark;
                     }
                 }
             }
 
             #main-nav {
                 .active>a {
-                    color: @primary-color-dark;
-                    border-bottom: 2px solid @primary-color-dark;
+                    color: $primary-color-dark;
+                    border-bottom: 2px solid $primary-color-dark;
                 }
 
                 li>a {
                     border-bottom: none;
 
                     &:hover {
-                        border-bottom-color: @primary-color-dark;
+                        border-bottom-color: $primary-color-dark;
                     }
                 }
             }
@@ -1139,14 +1139,14 @@ body {
         .categories {
             .categories-header {
                 .header-title {
-                    border-bottom: 2px solid @primary-color-dark;
+                    border-bottom: 2px solid $primary-color-dark;
                 }
             }
 
             .category-info {
                 .category-info-content {
                     .category-icon {
-                        color: @primary-color-dark;
+                        color: $primary-color-dark;
                     }
 
                     .category-title {
@@ -1158,7 +1158,7 @@ body {
                 .subcategories {
                     .subcategory {
                         .subcategory-icon {
-                            color: @primary-color-dark;
+                            color: $primary-color-dark;
                         }
 
                         .subcategory-title {
@@ -1182,7 +1182,7 @@ body {
         .category {
             .topics-header {
                 .header-title {
-                    border-bottom: 2px solid @primary-color-dark;
+                    border-bottom: 2px solid $primary-color-dark;
                 }
             }
 
@@ -1198,7 +1198,7 @@ body {
                 &.unread {
                     .title {
                         a {
-                            color: @primary-color-dark;
+                            color: $primary-color-dark;
                         }
 
                         small {
@@ -1216,7 +1216,7 @@ body {
         }
 
         .category [component="category/topic"] .teaser a {
-            color: @primary-color-dark;
+            color: $primary-color-dark;
 
             &.permalink {
                 color: #888;
@@ -1225,17 +1225,17 @@ body {
 
         [component="post"] {
             &.highlight {
-                border-bottom: 1px solid @primary-color-dark;
+                border-bottom: 1px solid $primary-color-dark;
             }
 
             .post-bar {
                 .tags {
                     a {
                         color: #888;
-                        border: 1px solid @primary-color-dark;
+                        border: 1px solid $primary-color-dark;
 
                         &:hover {
-                            color: @primary-color-dark;
+                            color: $primary-color-dark;
                         }
                     }
                 }
@@ -1275,7 +1275,7 @@ body {
                         }
 
                          &.unread {
-                             background-color: @primary-color-dark;
+                             background-color: $primary-color-dark;
 
                              .relTime {
                                  color: #fff;

@@ -1,18 +1,18 @@
-.square-shape(@size) {
-    width: @size;
-    height: @size;
+@mixin square-shape($size) {
+    width: $size;
+    height: $size;
     border-radius: 4px;
 }
 
-.user-avatar(@size) {
-    .square-shape(@size);
+@mixin user-avatar($size) {
+    @include square-shape($size);
 }
 
-.user-icon(@size, @font-size) {
-    .square-shape(@size);
-    line-height: @size;
+@mixin user-icon($size, $font-size) {
+    @include square-shape($size);
+    line-height: $size;
     text-align: center;
     color: #fff;
-    font-size: @font-size;
+    font-size: $font-size;
     font-weight: 700;
 }

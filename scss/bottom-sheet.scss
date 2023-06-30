@@ -1,5 +1,5 @@
 .bottom-sheet {
-    @media (max-width: @screen-sm-max) {
+    @media (max-width: $screen-sm-max) {
         .dropdown-menu {
             display: block;
         	visibility: hidden;
@@ -32,8 +32,8 @@
         		}
         
         		&.active {
-        			background-color: @btn-primary-bg;
-        			color: @btn-primary-color;
+        			background-color: $btn-primary-bg;
+        			color: $btn-primary-color;
         		}
         	}
         }

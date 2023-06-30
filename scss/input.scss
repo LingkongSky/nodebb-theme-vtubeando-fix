@@ -74,7 +74,7 @@
 
 .checkbox input:checked+.input-helper:before,
 .radio input:checked+.input-helper:before {
-    border-color: @primary-color; //#26a69a;
+    border-color: $primary-color; //#26a69a;
 }
 
 .checkbox .input-helper:before,
@@ -103,7 +103,7 @@
 }
 
 .checkbox input:checked+.input-helper:before {
-    background-color: @primary-color //#26a69a;
+    background-color: $primary-color //#26a69a;
 }
 
 .checkbox input:checked+.input-helper:after {
@@ -160,7 +160,7 @@
 .radio .input-helper:after {
     width: 9px;
     height: 9px;
-    background: @primary-color; //#009688;
+    background: $primary-color; //#009688;
     border-radius: 50%;
     top: 4px;
     left: 5px;
@@ -207,8 +207,8 @@
     
     &.selected {
         .checkbox .select+.input-helper:before {
-            border-color: @primary-color;
-            background-color: @primary-color;
+            border-color: $primary-color;
+            background-color: $primary-color;
         }
         
         .checkbox .select+.input-helper:after {
