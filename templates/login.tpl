@@ -1,73 +1,106 @@
-<div class="login">
-<!-- IMPORT partials/breadcrumbs.tpl -->
-
-	<div class="row">
-		<!-- IF alternate_logins -->
-		<div class="col-lg-6">
-			<div class="alt-logins">
-                                <h3> Opciones de inicio de sesión </h3>
-                                <button color="white" class="btn login-alt login-google" onclick="location.href='https://vtubeando.net/auth/google';"><i class="fa fa-google"></i><span>Iniciar Sesión con Google</span></button>
-                                <button color="white" class="btn login-alt login-twitter"><i class="fa fa-twitter"></i><span>Iniciar Sesión con Twitter</span></button>
-                                <button color="white" class="btn login-alt login-discord"><img src="/plugins/nodebb-theme-slick/images/Discord-Logo-White.svg"><span>Iniciar Sesión con Discord</span></button>
-                        <!--
-				<!-- BEGIN authentication -->
-				<div class="{authentication.name}"><a rel="nofollow noopener noreferrer" target="_top" href="{config.relative_path}{authentication.url}"><i class="fa {authentication.icon} fa-3x"></i></a></div>
-				<!-- END authentication -->
-                        -->
-			</div>
-		</div>
-		<!-- ENDIF alternate_logins -->
-
-		<!-- IF allowLocalLogin -->
-		<div class="col-lg-6">
-			<div class="login-block">
-                                <h3> Inicio de sesión de admins </h3>
-				<div class="alert alert-danger" id="login-error-notify" <!-- IF error -->style="display:block"<!-- ELSE -->style="display: none;"<!-- ENDIF error -->>
-					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong>[[login:failed_login_attempt]]</strong>
-					<p>{error}</p>
-				</div>
-
-				<form class="form-horizontal" method="post" target="login" id="login-form">
-					<div class="form-group">
-						<label for="username" class="col-lg-6 control-label">{allowLoginWith}</label>
-						<div class="col-lg-10 mx-auto">
-							<input class="form-control" type="text" placeholder="{allowLoginWith}" name="username" id="username" autocorrect="off" autocapitalize="off" value="{username}"/>
-						</div>
+<div data-widget-area="header">
+	{{{each widgets.header}}}
+	{{widgets.header.html}}
+	{{{end}}}
+</div>
+<div class="row login flex-fill">
+	<div class="d-flex flex-column gap-2 {{{ if widgets.sidebar.length }}}col-lg-9 col-sm-12{{{ else }}}col-lg-12{{{ end }}}">
+		<h2 class="tracking-tight fw-semibold text-center">[[global:login]]</h2>
+		<div class="row justify-content-center gap-5">
+			{{{ if allowLocalLogin }}}
+			<div class="col-12 col-md-5 col-lg-3 px-md-0">
+				<div class="login-block">
+					<div class="alert alert-danger alert-dismissible" id="login-error-notify" {{{ if error }}}style="display:block"{{{ else }}}style="display: none;"{{{ end }}}>
+						<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+						<strong>[[login:failed_login_attempt]]</strong>
+						<p>{error}</p>
 					</div>
-					<div class="form-group">
-						<label for="password" class="control-label col-lg-6">[[user:password]]</label>
-						<div class="col-lg-10 mx-auto">
-							<input class="form-control" type="password" placeholder="[[user:password]]" name="password" id="password" <!-- IF username -->autocomplete="off"<!-- ENDIF username -->/>
+
+					<form class="d-flex flex-column gap-3" role="form" method="post" id="login-form">
+						<div class="mb-2 d-flex flex-column gap-2">
+							<label for="username">{allowLoginWith}</label>
+							<div>
+								<input class="form-control" type="text" placeholder="{allowLoginWith}" name="username" id="username" autocorrect="off" autocapitalize="off" value="{username}"/>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<div class="mx-auto col-lg-10">
+						<div class="mb-2 d-flex flex-column gap-2">
+							<div class="d-flex justify-content-between align-items-center">
+								<label for="password">[[user:password]]</label>
+								{{{ if allowPasswordReset }}}
+								<a id="reset-link" tabindex="-1" class="text-sm text-reset text-decoration-underline" href="{config.relative_path}/reset">[[login:forgot_password]]</a>
+								{{{ end }}}
+							</div>
+							<div>
+								<input class="form-control" type="password" placeholder="[[user:password]]" name="password" id="password" {{{ if username }}}autocomplete="off"{{{ end }}}/>
+								<p id="caps-lock-warning" class="text-danger hidden">
+									<i class="fa fa-exclamation-triangle"></i> [[login:caps-lock-enabled]]
+								</p>
+							</div>
+						</div>
+						<div class="mb-2">
 							<div class="checkbox">
 								<label>
 									<input type="checkbox" name="remember" id="remember" checked /> [[login:remember_me]]
-									<i class="input-helper"></i>
 								</label>
 							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<div class="mx-auto col-lg-10">
-							<button class="btn btn-primary btn-lg btn-block" id="login" type="submit">[[global:login]]</button>
-
-							<div class="register-forgot-pwd">
-							<!-- IF allowRegistration -->
-							<span>[[login:dont_have_account]] <a href="{config.relative_path}/register">[[register:register]]</a></span>
-							<!-- ENDIF allowRegistration -->
-							&nbsp; <a id="reset-link" href="{config.relative_path}/reset">[[login:forgot_password]]</a>
-							</div>
+						{{{each loginFormEntry}}}
+						<div class="mb-2 loginFormEntry d-flex flex-column gap-2">
+							<label for="login-{loginFormEntry.styleName}">{loginFormEntry.label}</label>
+							<div id="login-{loginFormEntry.styleName}">{{loginFormEntry.html}}</div>
 						</div>
-					</div>
-				</form>
+						{{{end}}}
 
+						<input type="hidden" name="_csrf" value="{config.csrf_token}" />
+						<input type="hidden" name="noscript" id="noscript" value="true" />
+
+						<button class="btn btn-primary" id="login" type="submit">[[global:login]]</button>
+
+						<hr/>
+
+						{{{ if allowRegistration }}}
+						<span class="text-sm">[[login:dont_have_account]]</span>
+						<a class="btn btn-outline-light text-body" href="{config.relative_path}/register">[[register:register]]</a>
+						{{{ end }}}
+					</form>
+				</div>
 			</div>
-		</div>
-		<!-- ENDIF allowLocalLogin -->
+			{{{ end }}}
 
+			{{{ if alternate_logins }}}
+			<div class="col-12 col-md-5 col-lg-3 px-md-0">
+				<div class="alt-login-block d-flex flex-column gap-2">
+					<label>[[login:alternative_logins]]</label>
+					<ul class="alt-logins list-unstyled">
+						{{{ each authentication }}}
+						<li class="{./name} mb-2">
+							<a class="btn btn-outline-light d-flex align-items-center" rel="nofollow noopener noreferrer" target="_top" href="{config.relative_path}{./url}">
+								{{{ if ./icons.svg }}}
+								{./icons.svg}
+								{{{ else }}}
+								<i class="flex-shrink-0 {./icons.normal}" style="color:{./color};"></i>
+								{{{ end }}}
+								{{{ if ./labels.login }}}
+								<div class="flex-grow-1 text-body text-sm">{./labels.login}</div>
+                                                                {{{ else }}}
+								<div class="flex-grow-1 text-body text-sm">Accede con Discord</div>
+								{{{ end }}}
+							</a></li>
+						{{{ end }}}
+					</ul>
+				</div>
+			</div>
+			{{{ end }}}
+		</div>
 	</div>
+	<div data-widget-area="sidebar" class="col-lg-3 col-sm-12 {{{ if !widgets.sidebar.length }}}hidden{{{ end }}}">
+		{{{each widgets.sidebar}}}
+		{{widgets.sidebar.html}}
+		{{{end}}}
+	</div>
+</div>
+<div data-widget-area="footer">
+	{{{each widgets.footer}}}
+	{{widgets.footer.html}}
+	{{{end}}}
 </div>
