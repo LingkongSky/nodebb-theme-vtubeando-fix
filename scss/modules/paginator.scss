@@ -1,0 +1,13 @@
+
+[component="pagination"] {
+	.page-item.active:not(.disabled) .page-link {
+		color: $pagination-active-color;
+	}
+	.page-item:not(.disabled):hover .page-link {
+		color: $pagination-hover-color;
+		background-color: $pagination-hover-bg;
+	}
+	.page-item:not(.disabled) .page-link {
+		color: $body-color;
+	}
+}

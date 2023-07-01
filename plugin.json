@@ -1,43 +1,25 @@
 {
 	"id": "nodebb-theme-vtubeando",
-	"library": "./lib/theme.js",
 	"hooks": [
+		{ "hook": "static:app.load", "method": "init" },
+		{ "hook": "filter:admin.header.build", "method": "addAdminNavigation" },
 		{ "hook": "filter:widgets.getAreas", "method": "defineWidgetAreas" },
-		{
-			"hook": "static:app.load", "method": "init"
-		},
-		{
-			"hook": "filter:admin.header.build", "method": "addAdminNavigation"
-		},
-		{
-			"hook": "filter:config.get", "method": "getThemeConfig"
-		},
-		{
-			"hook": "filter:topic.build", "method": "addUserToTopic"
-		},
-		{
-			"hook": "filter:user.customSettings", "method": "customSettings"
-		},
-		{
-			"hook": "action:user.saveSettings", "method": "saveSettings"
-		},
-		{
-			"hook": "filter:user.getSettings", "method": "getSettings"
-		},
-		{
-			"hook": "filter:meta.getLinkTags", "method": "getLinkTags"
-		}
+		{ "hook": "filter:config.get", "method": "getThemeConfig" },
+		{ "hook": "filter:settings.get", "method": "getAdminSettings"},
+		{ "hook": "filter:user.saveSettings", "method": "saveUserSettings" },
+		{ "hook": "filter:user.profileMenu", "method": "addProfileItem" },
+		{ "hook": "filter:middleware.renderHeader", "method": "filterMiddlewareRenderHeader" },
+		{ "hook": "filter:middleware.render", "method": "removeFinalBreadcrumb" }
 	],
+	"scripts": [
+		"public/vtubeando.js"
+	],
+	"modules": {
+		"../admin/plugins/vtubeando.js": "public/admin.js",
+		"../client/account/theme.js": "public/settings.js"
+	},
         "staticDirs": {
             "images": "public/images"
         },
-	"scripts": [
-		"public/slick.js"
-	],
-	"modules": {
-		"../admin/plugins/slick.js": "public/admin.js",
-		"slick/quickreply.js": "public/quickreply.js",
-		"slick/chats.js": "public/chats.js"
-	},
-	"templates": "./templates"
+	"languages": "languages"
 }

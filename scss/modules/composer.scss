@@ -1,0 +1,8 @@
+$composer-color: $body-color !default;
+$composer-bg: $body-bg !default;
+
+@mixin composer-text-bg($color, $bg) {
+	color: $color !important;
+	background-color: $bg !important;
+}
+
