@@ -65,7 +65,7 @@ library.addProfileItem = async (data) => {
 		id: 'theme',
 		route: 'theme',
 		icon: 'fa-paint-brush',
-		name: '[[themes/vtubeando:settings.title]]',
+		name: '[[vtubeando:settings.title]]',
 		visibility: {
 			self: true,
 			other: false,

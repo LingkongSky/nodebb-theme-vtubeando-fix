@@ -1,0 +1,11 @@
+{
+    "settings.title": "标题",
+    "settings.enableQuickReply": "启用快速回复",
+    "settings.centerHeaderElements": "头部居中元素",
+    "settings.mobileTopicTeasers": "启用移动端帖子简介",
+    "settings.stickyToolbar": "粘性顶部栏",
+    "settings.stickyToolbar.help": "粘性顶部栏-帮助",
+    "settings.autohideBottombar": "自动隐藏底部栏",
+    "settings.autohideBottombar.help": "自动隐藏底部栏-帮助",
+    "settings.chatModals": "聊天模型"
+}

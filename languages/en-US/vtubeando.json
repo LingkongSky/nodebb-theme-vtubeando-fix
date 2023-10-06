@@ -1,0 +1,11 @@
+{
+    "settings.title": "title",
+    "settings.enableQuickReply": "enableQuickReply",
+    "settings.centerHeaderElements": "centerHeaderElements",
+    "settings.mobileTopicTeasers": "mobileTopicTeasers",
+    "settings.stickyToolbar": "stickyToolbar",
+    "settings.stickyToolbar.help": "stickyToolbar.help",
+    "settings.autohideBottombar": "autohideBottombar",
+    "settings.autohideBottombar.help": "autohideBottombar.help",
+    "settings.chatModals": "chatModals"
+}
