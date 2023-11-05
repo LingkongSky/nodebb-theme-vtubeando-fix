@@ -9,6 +9,7 @@ $(document).ready(function () {
 	handleMobileNavigator();
 	setupNavTooltips();
 	fixPlaceholders();
+	fixSidebarOverflow();
 
 	function setupSkinSwitcher() {
 		$('[component="skinSwitcher"]').on('click', '.dropdown-item', function () {
@@ -31,13 +32,14 @@ $(document).ready(function () {
 			const css = {
 				width: $('#panel').width(),
 			};
-			css[isRtl ? 'right' : 'left'] = $('.sidebar-left').outerWidth(true);
+			const sidebarEl = $('.sidebar-left');
+			css[isRtl ? 'right' : 'left'] = sidebarEl.is(':visible') ? sidebarEl.outerWidth(true) : 0;
 			$('[component="composer"]').css(css);
 		});
 
 		hooks.on('filter:chat.openChat', function (hookData) {
 			// disables chat modals & goes straight to chat page based on user setting
-			hookData.modal = config.theme.chatModals;
+			hookData.modal = config.theme.chatModals && !utils.isMobile();
 			return hookData;
 		});
 	});
@@ -116,12 +118,8 @@ $(document).ready(function () {
 			});
 			hooks.on('action:ajaxify.end', function () {
 				$window.off('scroll', delayedScroll);
-				$body.removeClass('chat-loaded');
 				bottomBar.css({ bottom: 0 });
 				setTimeout(enableAutohide, 250);
-			});
-			hooks.on('action:chat.loaded', function () {
-				$body.toggleClass('chat-loaded', !!(ajaxify.data.template.chats && ajaxify.data.roomId));
 			});
 		});
 	}
@@ -155,6 +153,9 @@ $(document).ready(function () {
 				}
 				draftItems.reverse().forEach((draft) => {
 					if (draft) {
+						if (draft.title) {
+							draft.title = utils.escapeHTML(String(draft.title));
+						}
 						draft.text = utils.escapeHTML(
 							draft.text
 						).replace(/(?:\r\n|\r|\n)/g, '<br>');
@@ -271,6 +272,16 @@ $(document).ready(function () {
 					}
 				});
 			}
+		});
+	}
+
+	function fixSidebarOverflow() {
+		// overflow-y-auto needs to be removed on main-nav when dropdowns are opened
+		const mainNavEl = $('#main-nav');
+		mainNavEl.on('show.bs.dropdown', () => {
+			mainNavEl.removeClass('overflow-y-auto');
+		}).on('hide.bs.dropdown', () => {
+			mainNavEl.addClass('overflow-y-auto');
 		});
 	}
 });

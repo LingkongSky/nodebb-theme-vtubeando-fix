@@ -6,14 +6,12 @@
 </div>
 {{{ end }}}
 
-<!-- IMPORT partials/breadcrumbs.tpl -->
-
 <div class="d-flex flex-column gap-3" itemid="{url}" itemscope itemtype="https://schema.org/DiscussionForumPosting">
 	<div class="d-flex flex-wrap">
 		<div class="d-flex flex-column gap-3 flex-grow-1">
-			<h2 component="post/header" class="tracking-tight fw-semibold fs-3 mb-0 text-break {{{ if config.theme.centerHeaderElements }}}text-center{{{ end }}}" itemprop="headline">
+			<h1 component="post/header" class="tracking-tight fw-semibold fs-3 mb-0 text-break {{{ if config.theme.centerHeaderElements }}}text-center{{{ end }}}" itemprop="headline">
 				<span class="topic-title" component="topic/title">{title}</span>
-			</h2>
+			</h1>
 
 			<div class="topic-info d-flex gap-2 align-items-center flex-wrap {{{ if config.theme.centerHeaderElements }}}justify-content-center{{{ end }}}">
 				<span component="topic/labels" class="d-flex gap-2 {{{ if (!scheduled && (!pinned && (!locked && (!oldCid && !icons.length)))) }}}hidden{{{ end }}}">
@@ -35,7 +33,7 @@
 					</a>
 					{{{each icons}}}<span class="lh-1">{@value}</span>{{{end}}}
 				</span>
-				<a class="lh-1" href="{config.relative_path}/category/{category.slug}">{function.buildCategoryLabel, category, "border"}</a>
+				{function.buildCategoryLabel, category, "a", "border"}
 				<div data-tid="{./tid}" component="topic/tags" class="lh-1 tags tag-list d-flex flex-wrap hidden-xs hidden-empty gap-2"><!-- IMPORT partials/topic/tags.tpl --></div>
 				<div class="d-flex hidden-xs gap-2">
 					<!-- IMPORT partials/topic/stats.tpl -->
@@ -45,12 +43,16 @@
 		<div class="d-flex gap-2 justify-content-end align-items-center mt-2 hidden-empty" component="topic/thumb/list"><!-- IMPORT partials/topic/thumbs.tpl --></div>
 	</div>
 
-	<div class="row">
+	<div class="row mb-4 mb-lg-0">
 		<div class="topic {{{ if widgets.sidebar.length }}}col-lg-9 col-sm-12{{{ else }}}col-lg-12{{{ end }}}">
 			<!-- IMPORT partials/post_bar.tpl -->
 
 			{{{ if merger }}}
 			<!-- IMPORT partials/topic/merged-message.tpl -->
+			{{{ end }}}
+
+			{{{ if forker }}}
+			<!-- IMPORT partials/topic/forked-message.tpl -->
 			{{{ end }}}
 
 			{{{ if !scheduled }}}
@@ -82,7 +84,9 @@
 						<hr/>
 					</div>
 					{{{ end }}}
+					{{{ if config.theme.enableQuickReply }}}
 					<!-- IMPORT partials/topic/quickreply.tpl -->
+					{{{ end }}}
 				</div>
 
 				<!-- IMPORT partials/topic/navigator.tpl -->
