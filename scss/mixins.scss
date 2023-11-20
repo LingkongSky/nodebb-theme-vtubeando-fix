@@ -1,5 +1,7 @@
 @mixin topic-avatars() {
-	.icon .avatar, .timeline-badge {
+
+	.icon .avatar,
+	.timeline-badge {
 		z-index: 1;
 
 		line-height: calc(var(--avatar-size) - 4px);
@@ -22,8 +24,11 @@
 }
 
 @mixin timeline-style() {
-	> [component="post"], .timeline-event, > [component="post/placeholder"] {
-		position: relative;	// for absolutely positioned pseudo-element, below
+
+	>[component="post"],
+	.timeline-event,
+	>[component="post/placeholder"] {
+		position: relative; // for absolutely positioned pseudo-element, below
 		border: 0;
 		margin-left: 1.5rem;
 		transition: border-color 1s ease-out;
@@ -66,7 +71,7 @@
 			}
 		}
 
-		> div:first-of-type {
+		>div:first-of-type {
 			margin-left: -1.5rem;
 		}
 
@@ -79,7 +84,8 @@
 		@include topic-avatars();
 	}
 
-	[component="topic/event"], [component="topic/necro-post"] {
+	[component="topic/event"],
+	[component="topic/necro-post"] {
 		&.timeline-event {
 			text-align: left;
 			justify-content: left;
@@ -107,15 +113,20 @@
 	}
 
 	@include media-breakpoint-down(sm) {
-		> [component="post"], .timeline-event {
-			&:first-child:before, &:last-child:after {
+
+		>[component="post"],
+		.timeline-event {
+
+			&:first-child:before,
+			&:last-child:after {
 				display: none;
 			}
 		}
 
 		[component="post"] {
 			margin-left: initial;
-			> div:not(.content) {
+
+			>div:not(.content) {
 				margin-left: 0;
 			}
 		}
@@ -125,7 +136,8 @@
 		}
 
 
-		[component="topic/event"], [component="topic/necro-post"] {
+		[component="topic/event"],
+		[component="topic/necro-post"] {
 			&.timeline-event {
 				.timeline-text {
 					line-height: 16px;
@@ -136,17 +148,10 @@
 	}
 
 	@include media-breakpoint-up(sm) {
-		&.minimal {
-			.post-footer, .timeline-event, [component="topic/quickreply/container"], .bookmarked {
-				display: none !important;
-			}
 
-			[component="post/content"] {
-				@include line-clamp(1);
-			}
-		}
-
-		> [component="post"], .timeline-event, > [component="post/placeholder"] {
+		>[component="post"],
+		.timeline-event,
+		>[component="post/placeholder"] {
 			border-left: 2px solid $border-color;
 
 			&.highlight {
@@ -172,7 +177,8 @@
 			}
 		}
 
-		[component="topic/event"], [component="topic/necro-post"] {
+		[component="topic/event"],
+		[component="topic/necro-post"] {
 			&.timeline-event .timeline-badge {
 				width: 24px;
 				height: 24px;
